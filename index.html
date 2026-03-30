@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <table border="1">
+            <tr>
+                <td colspan="4" class="screen">Error</td>
+            </tr>
+            
+            <tr>
+                <td><button onclick="ONCE()">ON/CE</button></td>
+                <td><button onclick="saveMemory()">MRC</button></td>
+                <td><button onclick="saveNegative()">M-</button></td>
+                <td><button onclick="savePositive()">M+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="OFF()">OFF</button></td>
+                <td><button onclick="rootSquare()">√</button></td>
+                <td><button onclick="percentage()">%</button></td>
+                <td><button onclick="divide()">÷</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="add7()">7</button></td>
+                <td><button onclick="add8()">8</button></td>
+                <td><button onclick="add9()">9</button></td>
+                <td><button onclick="multiply()">X</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="add4()">4</button></td>
+                <td><button onclick="add5()">5</button></td>
+                <td><button onclick="add6()">6</button></td>
+                <td><button onclick="subtract()">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="add1()">1</button></td>
+                <td><button onclick="add2()">2</button></td>
+                <td><button onclick="add3()">3</button></td>
+                <td rowspan="2"><button onclick="plus()">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="add0()">0</button></td>
+                <td><button onclick="addDot()" class="dot">.</button></td>
+                <td><button onclick="seeResult()">=</button></td>
+            </tr>
+        </table>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
