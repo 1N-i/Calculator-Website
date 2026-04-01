@@ -2,14 +2,15 @@ let on = false
 let newNumber = false
 let a = null
 let b = null
+let oper = null
 const screenVisual = document.getElementById("screen")
 
 function start() {
     newNumber = false
     a = null
     b = null
+    oper = null
 }
-
 start()
 
 function once() { //Done
@@ -74,19 +75,37 @@ function percentage() {
 
 function divide() {
     if (on === true) {
-
+        if (a !== null) {
+            b = Number(screenVisual.textContent)
+            a = seeResult(a, "/", b)
+        } else {
+            a = Number(screenVisual.textContent)
+            newNumber = true
+        }
     }
 }
 
 function multiply() {
     if (on === true) {
-
+        if (a !== null) {
+            b = Number(screenVisual.textContent)
+            a = seeResult(a, "*", b)
+        } else {
+            a = Number(screenVisual.textContent)
+            newNumber = true
+        }
     }
 }
 
 function subtract() {
     if (on === true) {
-
+        if (a !== null) {
+            b = Number(screenVisual.textContent)
+            a = seeResult(a, "-", b)
+        } else {
+            a = Number(screenVisual.textContent)
+            newNumber = true
+        }
     }
 }
 
@@ -94,9 +113,7 @@ function plus() {
     if (on === true) {
         if (a !== null) {
             b = Number(screenVisual.textContent)
-            screenVisual.innerHTML = (a + b)
-            newNumber = true
-            a += b
+            a = seeResult(a, "+", b)
         } else {
             a = Number(screenVisual.textContent)
             newNumber = true
@@ -106,7 +123,9 @@ function plus() {
 
 function seeResult(a, oper, b) {
     if (on === true) {
-        screenVisual.innerHTML = (a, oper, b)
-        newNumber = false
+        screenVisual.innerHTML = eval(`${a} ${oper} ${b}`)
+        newNumber = true
+        start()
+        return eval(`${a} ${oper} ${b}`)
     }
 }
