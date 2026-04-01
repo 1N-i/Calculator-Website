@@ -7,17 +7,17 @@
     <body>
         <table border="1">
             <tr>
-                <td colspan="4" class="screen">Error</td>
+                <td colspan="4" id="screen"></td>
             </tr>
             
             <tr>
-                <td><button onclick="ONCE()">ON/CE</button></td>
+                <td><button onclick="once()">ON/CE</button></td>
                 <td><button onclick="saveMemory()">MRC</button></td>
                 <td><button onclick="saveNegative()">M-</button></td>
                 <td><button onclick="savePositive()">M+</button></td>
             </tr>
             <tr>
-                <td><button onclick="OFF()">OFF</button></td>
+                <td><button onclick="off()">OFF</button></td>
                 <td><button onclick="rootSquare()" class="bigger">√</button></td>
                 <td><button onclick="percentage()"><b>%</b></button></td>
                 <td><button onclick="divide()" class="bigger">÷</button></td>
@@ -42,7 +42,7 @@
             </tr>
             <tr>
                 <td><button onclick="add0()">0</button></td>
-                <td><button onclick="addDot()" class="dot">.</button></td>
+                <td><button onclick="addDot()" id="dot">.</button></td>
                 <td><button onclick="seeResult()">=</button></td>
             </tr>
         </table>

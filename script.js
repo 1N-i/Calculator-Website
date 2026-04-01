@@ -1,7 +1,16 @@
-function ONCE() {
-    
+let on = false
+const screenVisual = document.getElementById("screen")
+
+function once() {
+    if (on === false) {
+        screenVisual.innerHTML = "0"
+        on = true
+    }
+    else {
+        screenVisual.innerHTML = "0"
+    }
 }
- 
+
 function saveMemory() {
     
 }
@@ -14,8 +23,11 @@ function savePositive() {
     
 }
 
-function OFF() {
-
+function off() {
+    if (on === true) {
+        screenVisual.innerHTML = " "
+        on = false
+    }
 }
 
 function rootSquare() {
