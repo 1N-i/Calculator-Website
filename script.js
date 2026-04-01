@@ -1,5 +1,16 @@
 let on = false
+let newNumber = false
+let a = null
+let b = null
 const screenVisual = document.getElementById("screen")
+
+function start() {
+    newNumber = false
+    a = null
+    b = null
+}
+
+start()
 
 function once() { //Done
     if (on === false) {
@@ -8,16 +19,32 @@ function once() { //Done
     }
     else {
         screenVisual.innerHTML = "0"
+        start()
     }
 }
 
-function add_ (num) {
+function off() { //Done
+    if (on === true) {
+        screenVisual.innerHTML = " "
+        on = false
+        start()
+    }
+}
+
+function add_ (num) { //Done
     if (on === true) {
         if (screenVisual.textContent[0] === "0") {
             screenVisual.innerHTML = ""
+        } else if (newNumber === true) {
+            screenVisual.innerHTML = ""
+            newNumber = false
         }
         screenVisual.innerHTML += `${num}`
     }
+}
+
+function addDot() { //To Do
+    
 }
 
 function saveMemory() {
@@ -32,41 +59,54 @@ function savePositive() {
     
 }
 
-function off() { //Done
+//Operators
+function rootSquare() {
     if (on === true) {
-        screenVisual.innerHTML = " "
-        on = false
+
     }
 }
 
-function rootSquare() {
-    
-}
-
 function percentage() {
-    
+    if (on === true) {
+
+    }
 }
 
 function divide() {
-    
+    if (on === true) {
+
+    }
 }
 
 function multiply() {
-    
+    if (on === true) {
+
+    }
 }
 
 function subtract() {
-    
+    if (on === true) {
+
+    }
 }
 
 function plus() {
-    
+    if (on === true) {
+        if (a !== null) {
+            b = Number(screenVisual.textContent)
+            screenVisual.innerHTML = (a + b)
+            newNumber = true
+            a += b
+        } else {
+            a = Number(screenVisual.textContent)
+            newNumber = true
+        }
+    }
 }
 
-function addDot() {
-    
-}
-
-function seeResult() {
-    
+function seeResult(a, oper, b) {
+    if (on === true) {
+        screenVisual.innerHTML = (a, oper, b)
+        newNumber = false
+    }
 }
