@@ -78,6 +78,8 @@ function divide() {
         if (a !== null) {
             b = Number(screenVisual.textContent)
             a = seeResult(a, "/", b)
+            a = null
+            divide()
         } else {
             a = Number(screenVisual.textContent)
             newNumber = true
@@ -90,6 +92,8 @@ function multiply() {
         if (a !== null) {
             b = Number(screenVisual.textContent)
             a = seeResult(a, "*", b)
+            a = null
+            multiply()
         } else {
             a = Number(screenVisual.textContent)
             newNumber = true
@@ -102,6 +106,8 @@ function subtract() {
         if (a !== null) {
             b = Number(screenVisual.textContent)
             a = seeResult(a, "-", b)
+            a = null
+            subtract()
         } else {
             a = Number(screenVisual.textContent)
             newNumber = true
@@ -114,6 +120,8 @@ function plus() {
         if (a !== null) {
             b = Number(screenVisual.textContent)
             a = seeResult(a, "+", b)
+            a = null
+            plus()
         } else {
             a = Number(screenVisual.textContent)
             newNumber = true
