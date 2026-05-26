@@ -3,6 +3,7 @@ let newNumber = false
 let a = null
 let b = null
 let oper = null
+let lastOper = null
 const screenVisual = document.getElementById("screen")
 
 function start() {
@@ -77,11 +78,12 @@ function divide() {
     if (on === true) {
         if (a !== null) {
             b = Number(screenVisual.textContent)
-            a = seeResult(a, "/", b)
+            a = seeResult(a, lastOper, b)
             a = null
             divide()
         } else {
             a = Number(screenVisual.textContent)
+            lastOper = "/"
             newNumber = true
         }
     }
@@ -91,11 +93,12 @@ function multiply() {
     if (on === true) {
         if (a !== null) {
             b = Number(screenVisual.textContent)
-            a = seeResult(a, "*", b)
+            a = seeResult(a, lastOper, b)
             a = null
             multiply()
         } else {
             a = Number(screenVisual.textContent)
+            lastOper = "*"
             newNumber = true
         }
     }
@@ -105,11 +108,12 @@ function subtract() {
     if (on === true) {
         if (a !== null) {
             b = Number(screenVisual.textContent)
-            a = seeResult(a, "-", b)
+            a = seeResult(a, lastOper, b)
             a = null
             subtract()
         } else {
             a = Number(screenVisual.textContent)
+            lastOper = "-"
             newNumber = true
         }
     }
@@ -119,11 +123,12 @@ function plus() {
     if (on === true) {
         if (a !== null) {
             b = Number(screenVisual.textContent)
-            a = seeResult(a, "+", b)
+            a = seeResult(a, lastOper, b)
             a = null
             plus()
         } else {
             a = Number(screenVisual.textContent)
+            lastOper = "+"
             newNumber = true
         }
     }
