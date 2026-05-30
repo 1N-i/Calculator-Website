@@ -77,10 +77,9 @@ function percentage() {
 function divide() {
     if (on === true) {
         if (a !== null) {
-            b = Number(screenVisual.textContent)
-            a = seeResult(a, lastOper, b)
-            a = null
-            divide()
+            lastOper = "/"
+            a = seeResult()
+            newNumber = true
         } else {
             a = Number(screenVisual.textContent)
             lastOper = "/"
@@ -92,10 +91,9 @@ function divide() {
 function multiply() {
     if (on === true) {
         if (a !== null) {
-            b = Number(screenVisual.textContent)
-            a = seeResult(a, lastOper, b)
-            a = null
-            multiply()
+            lastOper = "*"
+            a = seeResult()
+            newNumber = true
         } else {
             a = Number(screenVisual.textContent)
             lastOper = "*"
@@ -107,10 +105,9 @@ function multiply() {
 function subtract() {
     if (on === true) {
         if (a !== null) {
-            b = Number(screenVisual.textContent)
-            a = seeResult(a, lastOper, b)
-            a = null
-            subtract()
+            lastOper = "-"
+            a = seeResult()
+            newNumber = true
         } else {
             a = Number(screenVisual.textContent)
             lastOper = "-"
@@ -123,8 +120,8 @@ function plus() {
     if (on === true) {
         if (a !== null) {
             lastOper = "+"
-            b = Number(screenVisual.textContent)
             a = seeResult()
+            newNumber = true
         } else {
             a = Number(screenVisual.textContent)
             lastOper = "+"
@@ -137,8 +134,7 @@ function seeResult() {
     if (on === true) {
         b = Number(screenVisual.textContent)
         screenVisual.innerHTML = eval(`${a} ${lastOper} ${b}`)
-        newNumber = true
         start()
-        return eval(`${a} ${lastOper} ${b}`)
+        return screenVisual.innerHTML
     }
 }
