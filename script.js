@@ -122,10 +122,9 @@ function subtract() {
 function plus() {
     if (on === true) {
         if (a !== null) {
+            lastOper = "+"
             b = Number(screenVisual.textContent)
-            a = seeResult(a, lastOper, b)
-            a = null
-            plus()
+            a = seeResult()
         } else {
             a = Number(screenVisual.textContent)
             lastOper = "+"
@@ -134,11 +133,12 @@ function plus() {
     }
 }
 
-function seeResult(a, oper, b) {
+function seeResult() {
     if (on === true) {
-        screenVisual.innerHTML = eval(`${a} ${oper} ${b}`)
+        b = Number(screenVisual.textContent)
+        screenVisual.innerHTML = eval(`${a} ${lastOper} ${b}`)
         newNumber = true
         start()
-        return eval(`${a} ${oper} ${b}`)
+        return eval(`${a} ${lastOper} ${b}`)
     }
 }
