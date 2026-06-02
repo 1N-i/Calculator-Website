@@ -4,6 +4,7 @@ let a = null
 let b = null
 let oper = null
 let lastOper = null
+let dotExist = false
 const screenVisual = document.getElementById("screen")
 
 function start() { //Done
@@ -46,7 +47,14 @@ function add_ (num) { //Done
 }
 
 function addDot() { //To Do
-    
+    if (on === true) { // Check to see if there is a "."
+        if (dotExist === false) {
+            screenVisual.innerHTML += "."
+            dotExist = true
+        } else if (dotExist === true) {
+            newNumber = false
+        }
+    }
 }
 
 function saveMemory() { //To Do
@@ -64,26 +72,16 @@ function savePositive() { //To Do
 //Operators
 function rootSquare() { //Done
     if (on === true) {
-        if (lastOper !== null) {
-            seeResult()
-        }
-        a = Number(screenVisual.textContent)
-        screenVisual.innerHTML = eval(`${a} ** ${1/2}`)
-        start()
-        a = screenVisual.innerHTML
+        let value = Number(screenVisual.textContent)
+        screenVisual.innerHTML = eval(`${value} ** ${1/2}`)
         newNumber = true
     }
 }
 
 function percentage() { //Done
     if (on === true) {
-        if (lastOper !== null) {
-            seeResult()
-        }
-        a = Number(screenVisual.textContent)
-        screenVisual.innerHTML = eval(`${a} / ${100}`)
-        start()
-        a = screenVisual.innerHTML
+        let value = Number(screenVisual.textContent)
+        screenVisual.innerHTML = eval(`${value} / ${100}`)
         newNumber = true
     }
 }
