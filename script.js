@@ -62,27 +62,33 @@ function savePositive() { //To Do
 }
 
 //Operators
-function rootSquare() {
+function rootSquare() { //Done
     if (on === true) {
-        if (a !== null) {
-            if (newNumber === false) {
-                a = seeResult()
-                newNumber = true
-            }
-        } else {
-            a = Number(screenVisual.textContent)
-            newNumber = true
+        if (lastOper !== null) {
+            seeResult()
         }
+        a = Number(screenVisual.textContent)
+        screenVisual.innerHTML = eval(`${a} ** ${1/2}`)
+        start()
+        a = screenVisual.innerHTML
+        newNumber = true
     }
 }
 
-function percentage() { //To Do
+function percentage() { //Done
     if (on === true) {
-
+        if (lastOper !== null) {
+            seeResult()
+        }
+        a = Number(screenVisual.textContent)
+        screenVisual.innerHTML = eval(`${a} / ${100}`)
+        start()
+        a = screenVisual.innerHTML
+        newNumber = true
     }
 }
 
-function divide() {
+function divide() { //Done
     if (on === true) {
         if (a !== null) {
             if (newNumber === false) {
