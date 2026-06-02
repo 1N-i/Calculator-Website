@@ -6,7 +6,7 @@ let oper = null
 let lastOper = null
 const screenVisual = document.getElementById("screen")
 
-function start() {
+function start() { //Done
     newNumber = false
     a = null
     b = null
@@ -49,26 +49,34 @@ function addDot() { //To Do
     
 }
 
-function saveMemory() {
+function saveMemory() { //To Do
     
 }
 
-function saveNegative() {
+function saveNegative() { //To Do
     
 }
 
-function savePositive() {
+function savePositive() { //To Do
     
 }
 
 //Operators
 function rootSquare() {
     if (on === true) {
-
+        if (a !== null) {
+            if (newNumber === false) {
+                a = seeResult()
+                newNumber = true
+            }
+        } else {
+            a = Number(screenVisual.textContent)
+            newNumber = true
+        }
     }
 }
 
-function percentage() {
+function percentage() { //To Do
     if (on === true) {
 
     }
@@ -77,56 +85,60 @@ function percentage() {
 function divide() {
     if (on === true) {
         if (a !== null) {
-            lastOper = "/"
-            a = seeResult()
-            newNumber = true
+            if (newNumber === false) {
+                a = seeResult()
+                newNumber = true
+            }
         } else {
             a = Number(screenVisual.textContent)
-            lastOper = "/"
             newNumber = true
         }
+        lastOper = "/"
     }
 }
 
 function multiply() {
     if (on === true) {
         if (a !== null) {
-            lastOper = "*"
-            a = seeResult()
-            newNumber = true
+            if (newNumber === false) {
+                a = seeResult()
+                newNumber = true
+            }
         } else {
             a = Number(screenVisual.textContent)
-            lastOper = "*"
             newNumber = true
         }
+        lastOper = "*"
     }
 }
 
 function subtract() {
     if (on === true) {
         if (a !== null) {
-            lastOper = "-"
-            a = seeResult()
-            newNumber = true
+            if (newNumber === false) {
+                a = seeResult()
+                newNumber = true
+            }
         } else {
             a = Number(screenVisual.textContent)
-            lastOper = "-"
             newNumber = true
         }
+        lastOper = "-"
     }
 }
 
 function plus() {
     if (on === true) {
         if (a !== null) {
-            lastOper = "+"
-            a = seeResult()
-            newNumber = true
+            if (newNumber === false) {
+                a = seeResult()
+                newNumber = true
+            }
         } else {
             a = Number(screenVisual.textContent)
-            lastOper = "+"
             newNumber = true
         }
+        lastOper = "+"
     }
 }
 
