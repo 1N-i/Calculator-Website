@@ -1,3 +1,4 @@
+/* Do some quick changes on everything */
 body {
     background-color: lightgray;
     font-family: "Roboto Mono", monospace;
@@ -44,7 +45,7 @@ button {
     border: 4.25px solid lightgray;
 }
 
-button:hover {
+button:hover { /* Make more clear the user clicked something */
     cursor: pointer;
 }
 

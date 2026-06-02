@@ -2,28 +2,26 @@ let on = false
 let newNumber = false
 let a = null
 let b = null
-let oper = null
 let lastOper = null
-let dotExist = false
+let memory = 0
 const screenVisual = document.getElementById("screen")
 
 function start() { //Done
     newNumber = false
     a = null
     b = null
-    oper = null
+    lastOper = null
 }
 start()
 
 function once() { //Done
     if (on === false) {
-        screenVisual.innerHTML = "0"
         on = true
     }
     else {
-        screenVisual.innerHTML = "0"
         start()
     }
+    screenVisual.innerHTML = "0"
 }
 
 function off() { //Done
@@ -34,9 +32,9 @@ function off() { //Done
     }
 }
 
-function add_ (num) { //Done
+function add_ (num) { //Add delay and quick disappear and appear to show something happened
     if (on === true) {
-        if (screenVisual.textContent[0] === "0") {
+        if (screenVisual.textContent[0] === "0" && screenVisual.innerHTML.includes(".") !== true) {
             screenVisual.innerHTML = ""
         } else if (newNumber === true) {
             screenVisual.innerHTML = ""
@@ -46,17 +44,15 @@ function add_ (num) { //Done
     }
 }
 
-function addDot() { //To Do
-    if (on === true) { // Check to see if there is a "."
-        if (dotExist === false) {
+function addDot() { //Done
+    if (on === true) {
+        if (screenVisual.innerHTML.includes(".") !== true) {
             screenVisual.innerHTML += "."
-            dotExist = true
-        } else if (dotExist === true) {
-            newNumber = false
         }
     }
 }
 
+//Memory
 function saveMemory() { //To Do
     
 }
@@ -91,7 +87,6 @@ function divide() { //Done
         if (a !== null) {
             if (newNumber === false) {
                 a = seeResult()
-                newNumber = true
             }
         } else {
             a = Number(screenVisual.textContent)
@@ -101,12 +96,11 @@ function divide() { //Done
     }
 }
 
-function multiply() {
+function multiply() { //Done
     if (on === true) {
         if (a !== null) {
             if (newNumber === false) {
                 a = seeResult()
-                newNumber = true
             }
         } else {
             a = Number(screenVisual.textContent)
@@ -116,12 +110,11 @@ function multiply() {
     }
 }
 
-function subtract() {
+function subtract() { //Done
     if (on === true) {
         if (a !== null) {
             if (newNumber === false) {
                 a = seeResult()
-                newNumber = true
             }
         } else {
             a = Number(screenVisual.textContent)
@@ -131,12 +124,11 @@ function subtract() {
     }
 }
 
-function plus() {
+function plus() { //Done
     if (on === true) {
         if (a !== null) {
             if (newNumber === false) {
                 a = seeResult()
-                newNumber = true
             }
         } else {
             a = Number(screenVisual.textContent)
@@ -146,11 +138,12 @@ function plus() {
     }
 }
 
-function seeResult() {
+function seeResult() { //Done
     if (on === true) {
         b = Number(screenVisual.textContent)
         screenVisual.innerHTML = eval(`${a} ${lastOper} ${b}`)
         start()
+        newNumber = true
         return screenVisual.innerHTML
     }
 }
