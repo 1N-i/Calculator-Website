@@ -1,13 +1,17 @@
 let on = false
 let memory = 0
+let newNumber = false
+let a = null
+let b = null
+let lastOper = null
 const sleep = ms => new Promise((resolve) => setTimeout(resolve, ms));
 const screenVisual = document.getElementById("screen")
 
 function start() {
-    let newNumber = false
-    let a = null
-    let b = null
-    let lastOper = null
+    newNumber = false
+    a = null
+    b = null
+    lastOper = null
 }
 start()
 
@@ -87,7 +91,7 @@ async function rootSquare() {
     if (on === true) {
         await delay()
         let value = Number(screenVisual.textContent)
-        screenVisual.innerHTML = eval(`${value} ** ${1/2}`)
+        screenVisual.innerHTML = (value ** (1/2))
         newNumber = true
     }
 }
@@ -96,7 +100,7 @@ async function percentage() {
     if (on === true) {
         await delay()
         let value = Number(screenVisual.textContent)
-        screenVisual.innerHTML = eval(`${value} / ${100}`)
+        screenVisual.innerHTML = (value / 100)
         newNumber = true
     }
 }
@@ -164,7 +168,15 @@ async function plus() {
 function seeResult() {
     if (on === true) {
         b = Number(screenVisual.textContent)
-        screenVisual.innerHTML = eval(`${a} ${lastOper} ${b}`)
+        if (lastOper === "/") {
+            screenVisual.innerHTML = a / b
+        } else if (lastOper === "*") {
+            screenVisual.innerHTML = a * b
+        } else if (lastOper === "-") {
+            screenVisual.innerHTML = a - b
+        } else if (lastOper === "+") {
+            screenVisual.innerHTML = a + b
+        }
         start()
         newNumber = true
         return screenVisual.innerHTML
