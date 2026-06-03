@@ -1,20 +1,17 @@
 let on = false
-let newNumber = false
-let a = null
-let b = null
-let lastOper = null
 let memory = 0
+const sleep = ms => new Promise((resolve) => setTimeout(resolve, ms));
 const screenVisual = document.getElementById("screen")
 
-function start() { //Done
-    newNumber = false
-    a = null
-    b = null
-    lastOper = null
+function start() {
+    let newNumber = false
+    let a = null
+    let b = null
+    let lastOper = null
 }
 start()
 
-function once() { //Done
+function once() {
     if (on === false) {
         on = true
     }
@@ -24,7 +21,7 @@ function once() { //Done
     screenVisual.innerHTML = "0"
 }
 
-function off() { //Done
+function off() {
     if (on === true) {
         screenVisual.innerHTML = " "
         on = false
@@ -32,7 +29,14 @@ function off() { //Done
     }
 }
 
-function add_ (num) { //Add delay and quick disappear and appear to show something happened
+async function delay() {
+    let visualDelay = screenVisual.innerHTML
+    screenVisual.innerHTML = ""
+    await sleep(50)
+    screenVisual.innerHTML = visualDelay
+}
+
+async function add_(num) {
     if (on === true) {
         if (screenVisual.textContent[0] === "0" && screenVisual.innerHTML.includes(".") !== true) {
             screenVisual.innerHTML = ""
@@ -40,49 +44,64 @@ function add_ (num) { //Add delay and quick disappear and appear to show somethi
             screenVisual.innerHTML = ""
             newNumber = false
         }
+        await delay()
         screenVisual.innerHTML += `${num}`
     }
 }
 
-function addDot() { //Done
+async function addDot() {
     if (on === true) {
         if (screenVisual.innerHTML.includes(".") !== true) {
+            await delay()
             screenVisual.innerHTML += "."
         }
     }
 }
 
 //Memory
-function saveMemory() { //To Do
-    
+async function saveMemory() {
+    if (on === true) {
+        await delay()
+        screenVisual.innerHTML = memory
+        newNumber = true
+    }
 }
 
-function saveNegative() { //To Do
-    
+async function subtractMemory() {
+    if (on === true) {
+        await delay()
+        memory -= Number(screenVisual.textContent)
+        newNumber = true
+    }
 }
 
-function savePositive() { //To Do
-    
-}
+async function addMemory() {
+    if (on === true) {
+        await delay()
+        memory += Number(screenVisual.textContent)
+        newNumber = true 
+    }}
 
 //Operators
-function rootSquare() { //Done
+async function rootSquare() {
     if (on === true) {
+        await delay()
         let value = Number(screenVisual.textContent)
         screenVisual.innerHTML = eval(`${value} ** ${1/2}`)
         newNumber = true
     }
 }
 
-function percentage() { //Done
+async function percentage() {
     if (on === true) {
+        await delay()
         let value = Number(screenVisual.textContent)
         screenVisual.innerHTML = eval(`${value} / ${100}`)
         newNumber = true
     }
 }
 
-function divide() { //Done
+async function divide() {
     if (on === true) {
         if (a !== null) {
             if (newNumber === false) {
@@ -92,11 +111,12 @@ function divide() { //Done
             a = Number(screenVisual.textContent)
             newNumber = true
         }
+        await delay()
         lastOper = "/"
     }
 }
 
-function multiply() { //Done
+async function multiply() {
     if (on === true) {
         if (a !== null) {
             if (newNumber === false) {
@@ -106,11 +126,12 @@ function multiply() { //Done
             a = Number(screenVisual.textContent)
             newNumber = true
         }
+        await delay()
         lastOper = "*"
     }
 }
 
-function subtract() { //Done
+async function subtract() {
     if (on === true) {
         if (a !== null) {
             if (newNumber === false) {
@@ -120,11 +141,12 @@ function subtract() { //Done
             a = Number(screenVisual.textContent)
             newNumber = true
         }
+        await delay()
         lastOper = "-"
     }
 }
 
-function plus() { //Done
+async function plus() {
     if (on === true) {
         if (a !== null) {
             if (newNumber === false) {
@@ -134,11 +156,12 @@ function plus() { //Done
             a = Number(screenVisual.textContent)
             newNumber = true
         }
+        await delay()
         lastOper = "+"
     }
 }
 
-function seeResult() { //Done
+function seeResult() {
     if (on === true) {
         b = Number(screenVisual.textContent)
         screenVisual.innerHTML = eval(`${a} ${lastOper} ${b}`)
